@@ -12,25 +12,27 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# путь к нашему файлу 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# Секретный ключ при котором можно полдучиться доступ к нашему сайту 
 SECRET_KEY = 'django-insecure-a3-gt-f(vhex6id3l#$$z8gn73l4*y0deetlibsbn8&1^k0qje'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# если надо что бы на сайте не отображались ошибки пишите False
 DEBUG = True
 
+#Для подключения нужных хостов 
 ALLOWED_HOSTS = []
 
 
-# Application definition
+# Приложения
 
 INSTALLED_APPS = [
+    'main',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,8 +51,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+#Основной файл urls
 ROOT_URLCONF = 'Clinic.urls'
 
+#Шаблоны
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -101,8 +105,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
+#Язык приложения
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
