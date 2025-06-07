@@ -2,10 +2,10 @@ from django.shortcuts import render
 
 # Мы вызываем здесь метод от urls
 def index(request):
-    pass
+    return render(request, 'main/index.html')
 
 def about(request):
-    pass
+    return render(request, 'main/about.html')
 
 def doctors(request):
-    pass
+    return render(request, 'main/doctors.html')

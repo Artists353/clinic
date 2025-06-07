@@ -3,7 +3,7 @@ from . import views
 
 #Путь к панели администратора 
 urlpatterns = [
-    path('', views.index), 
-    path('about', views.about),
-    path('doctors', views.doctors),
+    path('', views.index, name='index'), 
+    path('about', views.about, name='about'),
+    path('doctors', views.doctors, name='doctors'),
 ]
