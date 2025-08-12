@@ -9,6 +9,73 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fafafa;
+      margin: 0;
+      color: #333;
+    }
+    .site-header {
+      background: linear-gradient(90deg, #6a9cfb, #4d7edb);
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      animation: fadeDown 1s ease-out;
+    }
+    .btn-appoint {
+      background: transparent;
+      border: 2px solid white;
+      color: white !important;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    .btn-appoint:hover {
+      background: white;
+      color: #4d7edb !important;
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+      padding: 2rem 0;
+      animation: fadeUp 1s ease-out;
+    }
+    .hero-text h2 {
+      font-size: 2rem;
+      animation: slideInLeft 1s ease-out;
+    }
+    .hero-text p {
+      animation: slideInLeft 1.2s ease-out;
+    }
+    .hero-image video {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      animation: zoomIn 1.5s ease-out;
+    }
+    section {
+      padding: 2rem 0;
+      animation: fadeUp 1s ease-out;
+    }
+    @keyframes fadeUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes slideInLeft {
+      from {opacity: 0; transform: translateX(-50px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+    @keyframes zoomIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -21,12 +88,9 @@
         </div>
       </div>
       <nav class="nav">
-        <a href="#services">Услуги</a>
-        <br>
-        <a href="#team">Врачи</a>
-        <br>
-        <a href="#contact">Контакты</a>
-        <br>
+        <a href="#services">Услуги</a><br>
+        <a href="#team">Врачи</a><br>
+        <a href="#contact">Контакты</a><br>
         <a class="btn-appoint" href="#contact">Записаться</a>
       </nav>
     </div>
@@ -39,13 +103,15 @@
           <h2>Качественная медицинская помощь без лишних сложностей</h2>
           <p>Приём специалистов, анализы, консультации — всё в одном месте. Запись онлайн или по телефону.</p>
           <div class="hero-cta">
-            <a class="btn" href="#contact">Записаться</a>
+            <a class="btn btn-appoint" href="#contact">Записаться</a>
             <a class="btn-outline" href="#services">Наши услуги</a>
           </div>
         </div>
         <div class="hero-image" aria-hidden="true">
-          <!-- Можно вставить изображение сюда -->
-          <div class="image-placeholder">Фото/иллюстрация</div>
+          <video autoplay loop muted playsinline>
+            <source src="static/main/img/doctor.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+          </video>
         </div>
       </div>
     </section>
@@ -108,21 +174,12 @@
           <p>Рабочие часы: Пн–Пт 08:00 — 21:00</p>
           <p>Email: artem.s.sumtsov@gmail.com</p>
         </div>
-        <h2>Записаться на приём</h2>
-        <!-- Таблица -->
-<table border="1" cellpadding="8" style="border-collapse: collapse;">
-  <tr>
-    <th>Имя</th>
-    <th>Телефон</th>
-    <th>Описание</th>
-  </tr>
-
-<!-- Форма -->
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" class="btn">Отправить</button>
-</form>
+        <form method="post">
+          <h2>Записаться на приём</h2>
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn">Отправить</button>
+        </form>
       </div>
     </section>
   </main>
@@ -135,5 +192,4 @@
   </footer>
 </body>
 </html>
-
 {% endblock %}
