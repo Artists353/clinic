@@ -1,10 +1,139 @@
 {% extends 'main/base.html' %}
 {% block title %}
-Поликлиника
+Клиника «Здоровье»
 {% endblock %}
 
 {% block content %}
-<div class="features">
-    <h1>Главная страница</h1>
-</div>  
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">🏥</div>
+        <div class="brand-text">
+          <h1>Клиника «Здоровье»</h1>
+          <p class="tag">Простая и надёжная помощь рядом</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#services">Услуги</a>
+        <br>
+        <a href="#team">Врачи</a>
+        <br>
+        <a href="#contact">Контакты</a>
+        <br>
+        <a class="btn-appoint" href="#contact">Записаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h2>Качественная медицинская помощь без лишних сложностей</h2>
+          <p>Приём специалистов, анализы, консультации — всё в одном месте. Запись онлайн или по телефону.</p>
+          <div class="hero-cta">
+            <a class="btn" href="#contact">Записаться</a>
+            <a class="btn-outline" href="#services">Наши услуги</a>
+          </div>
+        </div>
+        <div class="hero-image" aria-hidden="true">
+          <!-- Можно вставить изображение сюда -->
+          <div class="image-placeholder">Фото/иллюстрация</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section services">
+      <div class="container">
+        <h3>Наши услуги</h3>
+        <div class="cards">
+          <article class="card">
+            <h4>Терапия</h4>
+            <p>Приём терапевта, диагностика и план лечения.</p>
+          </article>
+          <article class="card">
+            <h4>Педиатрия</h4>
+            <p>Приём и наблюдение детей разного возраста.</p>
+          </article>
+          <article class="card">
+            <h4>Лаборатория</h4>
+            <p>Быстрые и точные анализы.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="section team">
+      <div class="container">
+        <h3>Наша команда</h3>
+        <div class="people">
+          <div class="person">
+            <div class="avatar">А</div>
+            <div>
+              <strong>Анна Иванова</strong>
+              <div class="role">Терапевт</div>
+            </div>
+          </div>
+          <div class="person">
+            <div class="avatar">П</div>
+            <div>
+              <strong>Пётр Смирнов</strong>
+              <div class="role">Педиатр</div>
+            </div>
+          </div>
+          <div class="person">
+            <div class="avatar">Е</div>
+            <div>
+              <strong>Елена Кузнецова</strong>
+              <div class="role">Лаборатория</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container contact-inner">
+        <div class="contact-info">
+          <h3>Контакты</h3>
+          <p>Адрес: ул. Красноармейская 45, г. Город Москва</p>
+          <p>Телефон: +7 (900) 000-00-00</p>
+          <p>Рабочие часы: Пн–Пт 08:00 — 21:00</p>
+          <p>Email: artem.s.sumtsov@gmail.com</p>
+        </div>
+        <h2>Записаться на приём</h2>
+        <!-- Таблица -->
+<table border="1" cellpadding="8" style="border-collapse: collapse;">
+  <tr>
+    <th>Имя</th>
+    <th>Телефон</th>
+    <th>Описание</th>
+  </tr>
+
+<!-- Форма -->
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn">Отправить</button>
+</form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 Клиника «Здоровье» — Все права защищены</p>
+      <p class="small">Просто. Чисто. Понятно.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
 {% endblock %}

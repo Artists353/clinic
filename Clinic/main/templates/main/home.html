@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Клиника «Здоровье»
+{% endblock %}
+
+{% block content %}
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">🏥</div>
+        <div class="brand-text">
+          <h1>Клиника «Здоровье»</h1>
+          <p class="tag">Простая и надёжная помощь рядом</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="/">Главная</a>
+        <a href="#services">Услуги</a>
+        <a href="#team">Врачи</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 60px 0; text-align: center;">
+      <div class="container">
+        <h2 style="color: var(--accent); font-size: 28px;">Ваш запрос отправлен</h2>
+        <p style="font-size: 18px; color: var(--muted); max-width: 500px; margin: 0 auto;">
+          Ожидайте звонок в течение дня. Наш специалист свяжется с вами для уточнения деталей записи.
+        </p>
+        <div style="margin-top: 30px;">
+          <a class="btn" href="/">Вернуться на главную</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 Клиника «Здоровье» — Все права защищены</p>
+      <p class="small">Просто. Чисто. Понятно.</p>
+    </div>
+  </footer>
+</body>
+</html>
+{% endblock %}

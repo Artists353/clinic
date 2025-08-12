@@ -10,19 +10,9 @@
     <link rel="stylesheet" href="{% static 'main/css/main.css'%}">
 </head>
 <body>
-    <aside>
-        <img src="{% static 'main/img/clinic_logo.jpg'%}" alt="Логотип">
-        <span class="logo">Clinic</span>
-        <h3>Навигация</h3>
-        <ul>
-            <a href="{% url 'index' %}"><li><i class="fa-solid fa-house"></i>Главная страница</li></a>
-            <a href="{% url 'about' %}"><li><i class="fa-solid fa-address-card"></i>Про нас</li></a>
-            <a href="{% url 'doctors' %}"><li><i class="fa-solid fa-user-doctor"></i>Доктора</li></a>
-        </ul>
-    </aside>
-    <main>
+
     {% block content %}
     {% endblock %}
-    </main>
+
 </body>
 </html>

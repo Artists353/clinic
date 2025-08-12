@@ -1,11 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Clinic
+from .forms import ClinicForm
 
 # Мы вызываем здесь метод от urls
 def index(request):
-    return render(request, 'main/index.html')
+    clinic = Clinic.objects.all()
+    
+    if request.method == "POST":
+        form = ClinicForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')  # 'home' замените на имя вашего URL
+    else:
+        form = ClinicForm()
 
-def about(request):
-    return render(request, 'main/about.html')
+    return render(request, 'main/index.html', {'clinic': clinic, 'form': form})
 
-def doctors(request):
-    return render(request, 'main/doctors.html')
+def home(request):
+    return render(request, 'main/home.html')
